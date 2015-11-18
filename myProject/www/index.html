@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs/jQuery js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular/angular.min.js"></script>
+    <script src="lib/ionic/js/jquery-1.11.3.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+
+  <body ng-init="liquor=[{store:'Spiritz',area:'kslayout'},{store:'Madhuloka',area:'jpnagar'},{store:'Kadamba',area:'vivekananda'},{store:'Paradise',area:'banashankari'}]">
+     
+      <button ng-click="login()">
+              Sign-In
+            </button>
+      <input type="text" id="text1" ng-model="store"/>
+      <br/>
+      <ul id="storeList">
+      <a href="#"><li id="{{liq.store}}" ng-repeat="liq in liquor|filter:store">{{liq.store}}
+          </li></a>
+      </ul>  
+      <script>
+          $("#storeList li").click(function() {
+    alert(this.id); // id of clicked li by directly accessing DOMElement property
+    alert($(this).attr('id')); // jQuery's .attr() method, same but more verbose
+    alert($(this).html()); // gets innerHTML of clicked li
+    alert($(this).text()); // gets text contents of clicked li
+});
+      </script>
+  </body>
+</html>
